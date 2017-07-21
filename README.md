@@ -50,4 +50,4 @@ unset PGPASSWORD
 
 ### Collect the Results
 
-The files `generic.csv`, `cms.csv` and widget_and_flow_list.txt contain the results.
+The files `generic.csv`, `cms.csv` and `widget_and_flow_list.txt` contain the results.
