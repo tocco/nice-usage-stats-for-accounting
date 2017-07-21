@@ -26,8 +26,8 @@ The easiest way to do this is to use [n2sql-on-all-dbs.py](https://git.tocco.ch/
 which executes the queries on all DB and allows to output the result is csv.
 
 ```
-n2sql-on-all-dbs -H localhost -d '.*(?<!test)$' -f generic.sql --csv >generic.csv
-n2sql-on-all-dbs -H localhost -d '.*(?<!test)$' -f cms.sql --csv >cms.csv
+n2sql-on-all-dbs -U postgres -H localhost -d '.*(?<!test)$' -f generic.sql --csv >generic.csv
+n2sql-on-all-dbs -U postgres -H localhost -d '.*(?<!test)$' -f cms.sql --csv >cms.csv
 ```
 
 note: Both scripts will fail on some databases. `generic.sql` will fail some very old installations (pre-v2.7.5) and
