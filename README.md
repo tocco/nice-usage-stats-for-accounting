@@ -33,6 +33,12 @@ n2sql-on-all-dbs -U postgres -H localhost -d '.*(?<!test)$' -f cms.sql --csv >cm
 note: Both scripts will fail on some databases. `generic.sql` will fail some very old installations (pre-v2.7.5) and
 `cms.sql` on all systems older than v2.10 or without CMS.
 
+### Merge results
+
+```sh
+csvtool join 1 2-8 generic.csv cms.csv | sed 's/,*$//' > combined.csv
+```
+
 ### Get List of Published Flows and Widgets
 
 For this the existing script [list-migration-info.py](https://git.tocco.ch/gitweb/?p=nice2.git;a=blob;f=src/bin/list-migration-info.py)
