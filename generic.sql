@@ -16,8 +16,8 @@ SELECT
 
   -- admin users
   --
-  -- This includes all users (nice_user) that are linked to an active login with a role of type 'manager. As exception, the
-  -- login 'tocco' and logins ending in '@tocco.ch' are ignored.
+  -- This includes all users (nice_user) that are linked to an active login with a role of type 'manager. As exception,
+  -- users associated with an @tocco.ch email address are ignored.
   --
   (SELECT
      COUNT(DISTINCT u.pk)
@@ -34,8 +34,8 @@ SELECT
      LEFT OUTER JOIN
      nice_principal_status AS s ON p.fk_principal_status = s.pk
    WHERE
-     t.unique_id = 'manager' AND s.unique_id = 'active' AND p.username <> 'tocco'
-       AND p.username NOT LIKE '%@tocco.ch'
+     t.unique_id = 'manager' AND s.unique_id = 'active'
+       AND u.email NOT LIKE '%@tocco.ch'
   ) AS "admins",
 
   -- outgoing mails per month averaged over the last 12 months (if possible)
